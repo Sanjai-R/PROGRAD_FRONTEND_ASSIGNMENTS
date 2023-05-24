@@ -6,4 +6,5 @@
 
 ## **Assignments**
 - [x] [RESUME PAGE](./Resume/index.html)
-
+- [x] [WEATHER WEBSITE](./API)
+- [x] [COLOR PICKER WITH CAROUSEL](./carousel-color-picker/)
