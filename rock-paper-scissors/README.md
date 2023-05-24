@@ -5,4 +5,4 @@ You are expected to create a rock-paper-scissor game (1 vs Computer). The comput
 
 ## Screenshots
 
-![Untitled](assets/images/screenshot.png)
+![Untitled](assets/images/Screenshot.png)
