@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0c0c48;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.choice {
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+}
+
+.choice:hover {
+    transform: scale(1.1);
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.player {
+    border: 3px solid #fff;
+    width: 250px;
+    height: 250px;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.playerCard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.scoreCard {
+    display: flex;
+    justify-content: center;
+    border: 3px solid #fff
+}
+
+.score {
+    border: 3px solid #fff;
+    width: 150px;
+    height: 150px;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
