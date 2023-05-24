@@ -1,10 +1,6 @@
-// JavaScript code for Rock-Paper-Scissors game
-
-// Initialize scores
 let playerScore = 0;
 let houseScore = 0;
 
-// Get HTML elements
 const playerScoreElement = document.querySelector(".player_score");
 const houseScoreElement = document.querySelector(".house_score");
 const resultTextElement = document.querySelector(".result-text");
@@ -13,7 +9,6 @@ const playerChoiceElement = document.querySelector(
 );
 const houseChoiceElement = document.querySelector(".game-board .house .choice");
 
-// Choices mapping
 const choices = {
   r: {
     name: "Rock",
@@ -29,27 +24,23 @@ const choices = {
   },
 };
 
-// Function to generate a random choice for the house
 function getHouseChoice() {
   const keys = Object.keys(choices);
   const randomIndex = Math.floor(Math.random() * keys.length);
   return choices[keys[randomIndex]];
 }
 
-// Function to update the score on the UI
 function updateScore() {
   playerScoreElement.textContent = playerScore;
   houseScoreElement.textContent = houseScore;
 }
 
-// Function to display the player and house choices
 function displayChoices(playerChoice, houseChoice) {
   console.log(houseChoiceElement.innerHTML);
   playerChoiceElement.innerHTML = `<img src="${playerChoice.icon}" alt="${playerChoice.name}" />`;
   houseChoiceElement.innerHTML = `<img src="${houseChoice.icon}" alt="${houseChoice.name}" />`;
 }
 
-// Function to determine the winner of the round
 function determineWinner(playerChoice, houseChoice) {
   if (playerChoice === houseChoice) {
     return "It's a tie!";
@@ -64,7 +55,6 @@ function determineWinner(playerChoice, houseChoice) {
   }
 }
 
-// Function to handle player choice and game logic
 function playGame(playerChoiceKey) {
   document.querySelector(".game-board").style.display = "flex";
   const playerChoice = choices[playerChoiceKey];
@@ -92,7 +82,6 @@ function playGame(playerChoiceKey) {
   }
 }
 
-// Function to disable choices after the game ends
 function disableChoices() {
   const choiceElements = document.querySelectorAll(".choice");
   choiceElements.forEach((choice) => {
@@ -100,7 +89,6 @@ function disableChoices() {
   });
 }
 
-// Function to handle player choice
 function handleChoice(event) {
   const choice = event.target.closest(".choice");
   if (!choice) return;
@@ -110,7 +98,6 @@ function handleChoice(event) {
   playGame(choiceId);
 }
 
-// Event listener for start button
 const startButton = document.querySelector(".button");
 startButton.addEventListener("click", () => {
   document.querySelector(".start_container").remove();
