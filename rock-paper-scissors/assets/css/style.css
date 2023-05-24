@@ -2,37 +2,85 @@
 
 * {
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #0c0c48;
-    margin: 0;
-    padding: 0;
-    color: #fff;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.container h1 {
+.container {
     text-align: center;
-    font-size: 3rem;
-    margin: 0;
-    padding: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.choice {
-    background-color: #fff;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    margin: 20px;
-    transition: all 0.3s ease-in-out;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.score {
+    flex: 1;
+    padding: 10px;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.score h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.score h2.player_score,
+.score h2.house_score {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.result-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .choices {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
+}
+
+.choice {
+    background-color: #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.choice img {
+    max-width: 100%;
 }
 
 .choice:hover {
@@ -40,46 +88,45 @@ body {
 }
 
 .game-board {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
-.player {
-    border: 3px solid #fff;
-    width: 250px;
-    height: 250px;
-    display: grid;
-    place-items: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.playerCard {
+.player,
+.house {
+    margin: 0 15px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-
-}
-
-.scoreCard {
-    display: flex;
-    justify-content: center;
-    border: 3px solid #fff
-}
-
-.score {
-    border: 3px solid #fff;
-    width: 150px;
-    height: 150px;
-    display: grid;
-    place-items: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.score-board {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 50px;
+}
+
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.start_container {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0c0c48;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #1d1d63;
 }
