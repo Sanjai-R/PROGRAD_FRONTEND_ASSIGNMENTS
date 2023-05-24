@@ -4,4 +4,40 @@
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.root {
+    display: flex;
+    width: 500vw;
+
+}
+
+.left,
+.right {
+    cursor: pointer;
+}
+
+.carousel-navigation {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
 }
