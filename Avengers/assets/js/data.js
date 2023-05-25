@@ -30,3 +30,36 @@ const data = [
     coordinates: [-51.15020478180335, 10.359251525758623],
   },
 ];
+
+const avengersData = [
+  {
+    name: "Iron man",
+    img: "./assets/images/avengers/iron-man.png",
+    coordinates: [-18.34962789826409, -123.79152093495384],
+  },
+  {
+    name: "Captain America",
+    img: "./assets/images/avengers/captain-america.png",
+    coordinates: [43.0827, 90.2707],
+  },
+  {
+    name: "Thor",
+    img: "./assets/images/avengers/thor.png",
+    coordinates: [-15.162850677130592, 178.62997327520611],
+  },
+  {
+    name: "Hulk",
+    img: "./assets/images/avengers/hulk.png",
+    coordinates: [43.0827, 70.2707],
+  },
+  {
+    name: "Black Panther",
+    img: "./assets/images/avengers/black-panther.png",
+    coordinates: [-15.162850677130592, 188.62997327520611],
+  },
+  {
+    name: "Spider Man",
+    img: "./assets/images/avengers/spider-man.png",
+    coordinates: [-18.34962789826409, -110.79152093495384],
+  },
+];
