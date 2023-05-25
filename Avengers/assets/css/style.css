@@ -23,8 +23,10 @@ body {
 .cont {
     background-image: url("/assets/images/bg.gif");
     width: 100%;
-    min-height: 30vh;
+    min-height: 50vh;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -32,10 +34,9 @@ body {
 
     margin: 0 20px;
     display: grid;
-    margin: 0 auto;
-    gap: 10px;
+    gap: 5px;
     padding: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     place-content: center;
     margin-top: 30px;
 }
@@ -69,7 +70,14 @@ body {
 .stone-container__item:hover {
     background-color: #2c2d2d;
 }
-
+.target{
+    background-color: #191a1a;
+    cursor: pointer;
+        transition: all 0.3s ease-in-out;
+}
+.target:hover{
+    background-color: #2c2d2d;
+}
 /* Animation */
 @keyframes fadeIn {
     0% {

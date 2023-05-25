@@ -3,27 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avengers</title>
-    
+    <title>Marvel Home</title>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
     />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/haversine-distance@1.2.1/index.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
-    <div class="cont"></div>
-    <div id="map"></div>
+    
+    <header class="body-font bg-blend-darken text-white items-center">
+      <nav class="flex items-center justify-between px-6 py-4">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold">Marvel</h1>
+        </div>
+        <div class="flex items-center">
+          <a href="map.html" class="mr-4 font-lg">Map</a>
+          <a href="stones.html" class="mr-4  font-lg">Stones</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto py-10">
+      <h1 class="text-4xl font-bold mb-4">Welcome to Marvel Universe</h1>
+      <p class="text-lg">Explore the epic world of Marvel superheroes!</p>
+      <div class="cont"></div>
+    </main>
 
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/data.js"></script>

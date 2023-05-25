@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avengers</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avengers</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="text-center text-3xl font-semibold my-3">
+    <h1>Avengers</h1>
+  </header>
+  
+  <main class="flex justify-around">
+    <img src="./assets/images/thanos.png" class="w-32 object-contain" alt="avengers" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <!-- <div id="map"></div> -->
-    <h1 class="text-center text-3xl font-semibold mt-3">Avengers</h1>
-    <div class="stone-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 m-3">
-     
+    <div class="target grid justify-center items-center rounded-md px-6">
+      <h1 class="font-semibold text-3xl my-2">Targeted Stone</h1>
+      
+      <div class="flex items-center justify-between text-left"> 
+        <img class="stone_img w-24 object-contain" src="" alt="" />
+        <div class="grid font-semibold">
+          <h1 class="stone_name "></h1>
+          <h1 class="distance"></h1>
+        </div>
+      </div>
     </div>
+  </main>
 
-   <script src="./assets/js/fetchData.js" defer></script>
+  <div class="stone-container"></div>
 
-   <script src="./assets/js/data.js" ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/haversine-distance@1.2.1/index.min.js"></script>
+  <script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/fetchData.js" defer></script>
+  <script src="./assets/js/data.js"></script>
+</body>
 </html>
