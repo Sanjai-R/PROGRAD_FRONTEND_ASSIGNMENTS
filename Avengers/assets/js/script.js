@@ -12,46 +12,52 @@ const getDistance = (location1, location2) => {
   return distance;
 };
 
-const getClosestAvenger = (location) => {
-  let nearestAvenger = null;
+const getClosestObject = (objects, location) => {
+  let nearestObject = null;
   let minDistance = Infinity;
-  avengersData.forEach((avenger) => {
-    const distance = getDistance(location, avenger.coordinates);
+  objects.forEach((obj) => {
+    const distance = getDistance(location, obj.coordinates);
     if (distance < minDistance) {
       minDistance = distance;
-      nearestAvenger = avenger;
+      nearestObject = obj;
     }
   });
-  console.log(nearestAvenger);
-  return nearestAvenger;
+  console.log(nearestObject);
+  return nearestObject;
 };
 
-const thanosLocation = {
-  currentLocation: getRandomCoordinates(),
-  targetLocation: [23.0827, 70.2707],
-};
+const moveMarker = (marker, targetLocation, stepSize) => {
+  const [currentLat, currentLng] = marker.getLatLng();
+  const [targetLat, targetLng] = targetLocation;
+  let newLat = currentLat;
+  let newLng = currentLng;
 
-if (window.location.pathname === "/stones.html") {
-  let nearestStone = null;
-  let minDistance = Infinity;
-  data.forEach((stone) => {
-    const distance = getDistance(
-      thanosLocation.currentLocation,
-      stone.coordinates
-    );
-    if (distance < minDistance) {
-      minDistance = distance;
-      nearestStone = stone;
+  if (currentLat !== targetLat || currentLng !== targetLng) {
+    if (currentLat < targetLat) {
+      newLat = currentLat + stepSize;
+    } else {
+      newLat = currentLat - stepSize;
     }
-  });
 
-  document.querySelector(
-    ".stone_name"
-  ).textContent = `${nearestStone.name} stone`;
-  document.querySelector(".stone_img").src = nearestStone.img;
-  document.querySelector(".distance").textContent = minDistance.toFixed(3);
-  console.log(nearestStone.name);
-} else {
+    if (currentLng < targetLng) {
+      newLng = currentLng + stepSize;
+    } else {
+      newLng = currentLng - stepSize;
+    }
+
+    marker.setLatLng([newLat, newLng]);
+
+    const distance = getDistance([newLat, newLng], targetLocation);
+
+    if (distance < 10000) {
+      console.log("Marker has reached the target location!");
+      clearInterval(intervalId);
+      alert("Marker has reached the target location!");
+    }
+  }
+};
+
+const setupMap = () => {
   var map = L.map("map").setView(thanosLocation.currentLocation, 1);
 
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -87,22 +93,12 @@ if (window.location.pathname === "/stones.html") {
     .addTo(map)
     .bindPopup("Thanos");
 
-  let nearestStone = null;
-  let minDistance = Infinity;
-  data.forEach((stone) => {
-    const distance = getDistance(
-      thanosLocation.currentLocation,
-      stone.coordinates
-    );
-    if (distance < minDistance) {
-      minDistance = distance;
-      nearestStone = stone;
-    }
-  });
+  return map;
+};
 
-  console.log(nearestStone);
+const moveThanosAndAvenger = (map, thanosLocation, targetCoordinates) => {
+  const stepSize = 0.1;
 
-  const targetCoordinates = nearestStone.coordinates;
   const thanosMarker = L.marker(thanosLocation.currentLocation, {
     icon: L.icon({
       iconUrl: "./assets/images/thanos.png",
@@ -110,113 +106,48 @@ if (window.location.pathname === "/stones.html") {
     }),
   }).addTo(map);
 
-  avengersData.forEach((avenger) => {
-    const avengerIcon = L.icon({
-      iconUrl: avenger.img,
+  const nearestStone = getClosestObject(data, thanosLocation.currentLocation);
+  console.log(nearestStone);
+
+  const targetMarker = L.marker(nearestStone.coordinates, {
+    icon: L.icon({
+      iconUrl: nearestStone.img,
       iconSize: [20, 20],
-    });
-
-    L.marker(avenger.coordinates, { icon: avengerIcon })
-      .addTo(map)
-      .bindPopup(avenger.name);
-  });
-
-  var circle = L.circle(nearestStone.coordinates, {
-    color: "red",
-    fillColor: "#f03",
-    fillOpacity: 0.5,
-    radius: 1000000,
+    }),
   }).addTo(map);
 
-  const closestAvenger = getClosestAvenger(nearestStone.coordinates);
+  const closestAvenger = getClosestObject(
+    avengersData,
+    nearestStone.coordinates
+  );
   const closestAvengerMarker = L.marker(closestAvenger.coordinates, {
     icon: L.icon({
       iconUrl: closestAvenger.img,
       iconSize: [20, 20],
     }),
   }).addTo(map);
-  const moveCloseAvenger = () => {
-    const step = 0.1;
-    const currentLatLng = closestAvengerMarker.getLatLng();
-    const currentLat = currentLatLng.lat;
-    const currentLng = currentLatLng.lng;
-    const [targetLat, targetLng] = nearestStone.coordinates;
-    console.log(getDistance([currentLat, currentLng], nearestStone.coordinates));
-    let newLat = currentLat;
-    let newLng = currentLng;
-
-    if (currentLat !== targetLat || currentLng !== targetLng) {
-      if (currentLat < targetLat) {
-        newLat = currentLat + step;
-      } else {
-        newLat = currentLat - step;
-      }
-
-      if (currentLng < targetLng) {
-        newLng = currentLng + step;
-      } else {
-        newLng = currentLng - step;
-      }
-
-      closestAvengerMarker.setLatLng([newLat, newLng]);
-
-      const distance = getDistance([newLat, newLng], nearestStone.coordinates);
-
-      if (distance < 10000) {
-        console.log("Avenger has reached the stone!");
-        clearInterval(intervalId);
-        alert("Avenger has reached the stone!");
-      }
-    }
-  };
-
-  const moveThanos = () => {
-    const step = 0.1;
-    const [currentLat, currentLng] = thanosLocation.currentLocation;
-    const [targetLat, targetLng] = targetCoordinates;
-
-    if (currentLat !== targetLat || currentLng !== targetLng) {
-      if (currentLat < targetLat) {
-        thanosLocation.currentLocation[0] += step;
-      } else {
-        thanosLocation.currentLocation[0] -= step;
-      }
-
-      if (currentLng < targetLng) {
-        thanosLocation.currentLocation[1] += step;
-      } else {
-        thanosLocation.currentLocation[1] -= step;
-      }
-
-      thanosMarker.setLatLng(thanosLocation.currentLocation);
-
-      const distance = getDistance(
-        thanosLocation.currentLocation,
-        targetCoordinates
-      );
-
-      if (distance < 10000) {
-        console.log("Thanos has reached the target location!");
-        clearInterval(intervalId);
-        alert("Thanos has reached the target location!");
-
-        // Send Avengers to stop Thanos
-        avengersData.forEach((avenger) => {
-          const avengerMarker = L.marker(avenger.coordinates, {
-            icon: L.icon({
-              iconUrl: avenger.img,
-              iconSize: [20, 20],
-            }),
-          }).addTo(map);
-          avengerMarker.bindPopup(`Avenger: ${avenger.name}<br>Stop Thanos!`);
-        });
-      }
-    }
-  };
 
   const move = () => {
-    moveThanos();
-    moveCloseAvenger();
+    moveMarker(thanosMarker, targetCoordinates, stepSize);
+    moveMarker(closestAvengerMarker, nearestStone.coordinates, stepSize);
   };
+
   const intervalId = setInterval(move, 50);
+};
+
+if (window.location.pathname === "/stones.html") {
+  let nearestStone = getClosestObject(data, thanosLocation.currentLocation);
+
+  document.querySelector(
+    ".stone_name"
+  ).textContent = `${nearestStone.name} stone`;
+  document.querySelector(".stone_img").src = nearestStone.img;
+  document.querySelector(".distance").textContent = getDistance(
+    thanosLocation.currentLocation,
+    nearestStone.coordinates
+  ).toFixed(3);
+  console.log(nearestStone.name);
+} else {
+  const map = setupMap();
+  moveThanosAndAvenger(map, thanosLocation, targetCoordinates);
 }
