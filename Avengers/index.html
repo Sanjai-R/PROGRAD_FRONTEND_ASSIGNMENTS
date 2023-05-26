@@ -8,30 +8,32 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/avengers/iron-man.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
   <body>
+    <div class="bg-container"></div>
     
-    <header class="body-font bg-blend-darken text-white items-center">
-      <nav class="flex items-center justify-between px-6 py-4">
-        <div class="flex items-center">
-          <h1 class="text-2xl font-bold">Marvel</h1>
-        </div>
-        <div class="flex items-center">
-          <a href="map.html" class="mr-4 font-lg">Map</a>
-          <a href="stones.html" class="mr-4  font-lg">Stones</a>
-        </div>
-      </nav>
-    </header>
 
-    <main class="container mx-auto py-10">
-      <h1 class="text-4xl font-bold mb-4">Welcome to Marvel Universe</h1>
-      <p class="text-lg">Explore the epic world of Marvel superheroes!</p>
-      <div class="cont"></div>
-    </main>
-
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/data.js"></script>
+    <div class="button-container">
+      <a href="stones.html">
+        <button class="button">Stones</button>
+      </a>
+      <a href="char.html">
+        <button class="button">Character</button>
+      </a>
+      <a href="map.html">
+        <button class="button">Thanos Tracker</button>
+      </a>
+    </div>
   </body>
 </html>

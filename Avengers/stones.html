@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avengers</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-<body>
-  <header class="text-center text-3xl font-semibold my-3">
-    <h1>Avengers</h1>
-  </header>
-  
-  <main class="flex justify-around">
-    <img src="./assets/images/thanos.png" class="w-32 object-contain" alt="avengers" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avengers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="p-5 flex justify-between w-full">
+      <a href="index.html" class="self-start">
+        <button class="bg-red-700 hover:bg-red-800 px-3 py-2 rounded-md">
+          <i class="fas fa-chevron-left"></i>
+          back to home
+        </button>
+      </a>
+      <p class="text-3xl text-center font-bold">Infinity Stones</p>
+    </div>
+    <main class="flex justify-around">
+      <img
+        src="./assets/images/thanos.png"
+        class="w-32 object-contain"
+        alt="avengers"
+      />
 
-    <div class="target grid justify-center items-center rounded-md px-6">
-      <h1 class="font-semibold text-3xl my-2">Targeted Stone</h1>
-      
-      <div class="flex items-center justify-between text-left px-5"> 
-        <img class="stone_img w-24 object-contain" src="" alt="" />
-        <div class="grid font-semibold items-center">
-          <h1 class="stone_name "></h1>
-          <h1 class="distance"></h1>
+      <div class="grid justify-center items-center rounded-md px-6">
+        <h1 class="font-semibold text-3xl my-2">Targeted Stone</h1>
+
+        <div class="flex items-center justify-between text-left px-5">
+          <img class="stone_img w-24 object-contain" src="" alt="" />
+          <div class="grid font-semibold items-center">
+            <h1 class="stone_name"></h1>
+            <h1 class="distance"></h1>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <div class="stone-container"></div>
+    <div class="stone-container"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/haversine-distance@1.2.1/index.min.js"></script>
-  <script src="./assets/js/script.js" defer></script>
-  <script src="./assets/js/fetchData.js" defer></script>
-  <script src="./assets/js/data.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/haversine-distance@1.2.1/index.min.js"></script>
+    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/fetchData.js" defer></script>
+    <script src="./assets/js/data.js"></script>
+  </body>
 </html>

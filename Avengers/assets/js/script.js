@@ -50,7 +50,7 @@ if (window.location.pathname === "/stones.html") {
   ).textContent = `${nearestStone.name} stone`;
   document.querySelector(".stone_img").src = nearestStone.img;
   document.querySelector(".distance").textContent = minDistance.toFixed(3);
-  console.log(nearestStone.name);
+  console.log(minDistance.toFixed(3));
 } else {
   var map = L.map("map").setView(thanosLocation.currentLocation, 1);
 

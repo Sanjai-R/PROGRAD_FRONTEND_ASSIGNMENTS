@@ -19,13 +19,26 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/haversine-distance@1.2.1/index.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
-    <div id="map"></div>
+    <div class="py-5 flex justify-between w-full">
+      <a href="index.html" class="self-start">
+        <button class="bg-red-700 hover:bg-red-800 px-3 py-2 rounded-md">
+          <i class="fas fa-chevron-left"></i>
+          back to home
+        </button>
+      </a>
+      <p class="text-3xl text-center font-bold">Thanos Tracking</p>
+    </div>
+
+    <div class="rounded-md" id="map"></div>
 
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/data.js"></script>
