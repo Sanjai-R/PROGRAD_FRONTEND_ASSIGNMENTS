@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <title>Captcha Generator</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
@@ -11,7 +11,43 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <body class="bg-gray-200">
-    <h1>Hello World!</h1>
+  <body>
+    <section class="flex justify-center h-screen">
+      <div class="bg-slate-500 shadow my-auto space-y-4 p-6 mt-8">
+        <p class="text-3xl text-center font-bold">Captcha Generator</p>
+        <div
+          id="captcha"
+          class="h-10 text-xl px-6 bg-gray-100 font-semibold rounded-md border border-slate-200 text-blue-800 text-center"
+        >
+          Click generate captcha btn
+        </div>
+        <input
+          class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm text-slate-900 placeholder-slate-400 rounded-sm py-2 pl-2 ring-1 ring-gray-200 shadow-sm"
+          type="text"
+          aria-label="Filter projects"
+          placeholder="Enter Captcha"
+          id="user_captcha"
+        />
+        <div class="flex-auto flex space-x-4">
+          <button
+            class="h-10 px-6 font-semibold rounded-md bg-black text-white"
+            type="submit"
+            onclick="checkCaptcha()"
+          >
+            Verify
+          </button>
+          <button
+            class="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900"
+            type="button"
+            onclick="setData()"
+          >
+            Generate Captcha
+          </button>
+        </div>
+        <p class="text-lg text-center font-semibold" id="result"></p>
+      </div>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
